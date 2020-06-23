@@ -8,17 +8,28 @@ package by.nikita.entities;
 
 public class CarInfo {
 
+    private int id;
     private String imgUrl;
     private String text;
     private String header;
+    private String details;
 
     public CarInfo() {
     }
 
-    public CarInfo(String imgUrl, String text, String header) {
+    public CarInfo(int id, String imgUrl, String text, String header) {
+        this.id = id;
         this.imgUrl = imgUrl;
         this.text = text;
         this.header = header;
+    }
+
+    public CarInfo(int id, String imgUrl, String text, String header, String details) {
+        this.id = id;
+        this.imgUrl = imgUrl;
+        this.text = text;
+        this.header = header;
+        this.details = details;
     }
 
     public String getImgUrl() {
@@ -43,5 +54,32 @@ public class CarInfo {
 
     public void setHeader(String header) {
         this.header = header;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "CarInfo{" +
+                "id=" + id +
+                ", imgUrl='" + imgUrl + '\'' +
+                ", text='" + text + '\'' +
+                ", header='" + header + '\'' +
+                ", details='" + details + '\'' +
+                '}';
     }
 }

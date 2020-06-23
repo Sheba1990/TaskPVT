@@ -30,24 +30,13 @@ public class CarInfoServlet extends HttpServlet {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
         req.setAttribute("currentDate", simpleDateFormat.format(new Date()));
 
-        UserInfo attribute = (UserInfo) req.getSession().getAttribute("CurrentUser");
+        UserInfo userInfo = (UserInfo) req.getSession().getAttribute("CurrentUser");
 
-        if (attribute != null) {
-            req.setAttribute("carinfo", CarInfoService.getInstance().getCars(attribute.getUsername()));
+        if (userInfo != null) {
+            req.setAttribute("carInfo", CarInfoService.getInstance().getCarsByUsername(userInfo.getUsername()));
         }
 
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
-    }
-
-    private void setLocale(HttpServletRequest req) {
-        String header = req.getHeader("accept-language");
-
-        if (header.contains("ru-RU")) {
-            req.getSession().setAttribute("locale", "ru_RU");
-        } else {
-            req.getSession().setAttribute("locale", "us_EN");
-
-        }
     }
 
     @Override
@@ -63,10 +52,18 @@ public class CarInfoServlet extends HttpServlet {
             req.getSession().setAttribute("LoggedUser", userByPassAndName.toString());
             req.getSession().setAttribute("CurrentUser", userByPassAndName);
 
-            req.setAttribute("cars", CarInfoService.getInstance().getCars(userByPassAndName.getUsername()));
+            req.setAttribute("cars", CarInfoService.getInstance().getCarsByUsername(userByPassAndName.getUsername()));
         }
-
         req.getRequestDispatcher("/index.jsp").forward(req, resp);
+    }
 
+    private void setLocale(HttpServletRequest req) {
+        String header = req.getHeader("accept-language");
+
+        if (header.contains("ru-RU")) {
+            req.getSession().setAttribute("locale", "ru_RU");
+        } else {
+            req.getSession().setAttribute("locale", "us_EN");
+        }
     }
 }

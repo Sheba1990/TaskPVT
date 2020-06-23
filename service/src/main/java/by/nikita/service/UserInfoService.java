@@ -15,6 +15,10 @@ public class UserInfoService {
 
     private static UserInfoService instance = new UserInfoService();
 
+    public static UserInfoService getInstance() {
+        return instance;
+    }
+
     private UserInfoService() {
     }
 
@@ -29,7 +33,4 @@ public class UserInfoService {
         return null;
     }
 
-    public static UserInfoService getInstance() {
-        return instance;
-    }
 }

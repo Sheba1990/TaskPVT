@@ -1,0 +1,4 @@
+# Project exclude paths
+/entities/target/
+/service/target/
+/view/target/
