@@ -1,11 +1,12 @@
 package by.nikita.service;
 
+import by.nikita.dao.IUserInfoService;
 import by.nikita.entities.UserInfo;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserInfoService {
+public class UserInfoService implements IUserInfoService {
 
     Map<String, UserInfo> users = new HashMap<>();
 

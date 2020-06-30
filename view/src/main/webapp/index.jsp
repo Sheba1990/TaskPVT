@@ -84,7 +84,7 @@
 						<img src="${carInfo.imgUrl}" width="450" height="337" alt="">
 						<p>${carInfo.text}</p>
 						<footer class="more">
-							<a href="/details/${carInfo.id}">Read More &raquo;</a>
+							<a href="/cars_info/details/${carInfo.id}">Read More &raquo;</a>
 						</footer>
 					</article>
 					<br />

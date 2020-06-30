@@ -11,7 +11,8 @@
 		<module>service</module>
 		<module>view</module>
 		<module>entities</module>
-	</modules>
+        <module>dao</module>
+    </modules>
 
 	<packaging>pom</packaging>
 

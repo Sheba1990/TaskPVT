@@ -1,5 +1,6 @@
 package by.nikita.service;
 
+import by.nikita.dao.ICarInfoService;
 import by.nikita.entities.CarInfo;
 
 import java.util.ArrayList;
@@ -7,11 +8,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CarInfoService {
+public class CarInfoService implements ICarInfoService {
 
     Map<String, List<CarInfo>> cars = new HashMap<>();
 
     Map<Integer, CarInfo> car = new HashMap<>();
+
+    public CarInfo getCarById(int id) {
+        CarInfo carInfo = car.get(id);
+        if (carInfo != null) {
+            if (carInfo.getId() == id) {
+                return carInfo;
+            } else {
+                return null;
+            }
+        }
+        return null;
+    }
 
     static private CarInfoService instance = new CarInfoService();
 
@@ -31,7 +44,7 @@ public class CarInfoService {
                         "\n" +
                         "Design began in 1989. Called '500 E' through to model year 1993, for model year 1994 it was face-lifted along with the rest of the range and renamed to 'E 500'. The chassis constructed by Porsche was also used to produce the 400 E (W124.034), that was technically identical to its big brother, save its 4.2L V8 also used in the S-Class and some other minor changes. The 400 E (later renamed 'E 420') was produced in Sindelfingen, since it lacked the widened wings and thus was perfectly understated as it looked like one of its lesser siblings.\n" +
                         "\n" +
-                        "In Germany, the 500 E first came on sale in late 1990, making its first appearance in Mercedes-Benz October 1, 1990 pricelist, with a retail price of DM134,520. By January 2, 1993, the price had risen to DM145,590, and would stay at it until the car went off the market in late 1994, it was last available in the August 1, 1994 pricelist. In the United States, the car first became available as a 1992 model with a retail price of $81,800 and was available until MY 1994.",
+                        "In Germany, the 500 E first came on sale in late 1990, making its first appearance in Mercedes-Benz October 1, 1990 pricelist, with a retail price of DM134,520. By January 2, 1993, the price had risen to DM145,590, and would stay at it until the car went off the market in late 1994, it was last available in the August 1, 1994 pricelist. In the United States, the car first became available as a 1992 model with a retail price of $81,800 and was available until 1994.",
                 "Mercedes-Benz 500E",
                 ""));
 
@@ -44,7 +57,7 @@ public class CarInfoService {
                         "\n" +
                         "Cosmetic changes to the exterior from the standard E34 included unique front and rear bumpers and side rocker panels, contributing to a drag coefficient of 0.32 (from 0.30), and interior updates included a unique gearshift surround and rear headrests.\n" +
                         "\n" +
-                        "The second-generation M5 was introduced with the S38B36 engine, which generated 232 kW (315 PS; 311 hp) at 6,900 rpm and 360 N⋅m (266 lb⋅ft) of torque at 4,750 rpm, touting a factory 0-97 km/h (60 mph) acceleration figure of 6.3 seconds. Top speed was electronically limited to 250kmh – 155 mph. ",
+                        "The second-generation M5 was introduced with the S38B36 engine, which generated 232 kW (315 PS; 311 hp) at 6,900 rpm and 360 N⋅m (266 lb⋅ft) of torque at 4,750 rpm, touting a factory 0-97 km/h (60 mph) acceleration figure of 6.3 seconds. Top speed was electronically limited to 250kmh or 155 mph. ",
                 "BMW M5 e34",
                 ""));
 
@@ -61,5 +74,6 @@ public class CarInfoService {
     public List<CarInfo> getCarsByUsername(String username) {
         return cars.get(username);
     }
+
 }
 
