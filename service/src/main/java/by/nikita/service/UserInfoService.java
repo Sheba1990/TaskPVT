@@ -1,6 +1,6 @@
 package by.nikita.service;
 
-import by.nikita.dao.IUserInfoService;
+import by.nikita.api.IUserInfoService;
 import by.nikita.entities.UserInfo;
 
 import java.util.HashMap;

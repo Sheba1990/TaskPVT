@@ -9,8 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>by.nikita.api</groupId>
-    <artifactId>dao</artifactId>
+    <artifactId>api</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>by.nikita</groupId>
